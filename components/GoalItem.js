@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable } from "react-native-web";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 
 function GoalItem(props) {
     return(
