@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View } from "react-native-web";
+import { StyleSheet, Text, View, Pressable } from "react-native-web";
+
 function GoalItem(props) {
     return(
         <View style={styles.goalItem}>
-            <Text style={styles.goalText}>{props.text}</Text>
+            <Pressable andriod_ripple={{color: '#210644'}} style={({pressed}) => {pressed && styles.pressedItem}} onPress={props.onDeleteItem.bind(this, props.id)}>
+                <Text style={styles.goalText}>{props.text}</Text>
+            </Pressable>
         </View>
     );
 }
@@ -12,11 +15,14 @@ const styles = StyleSheet.create({
         margin: 8,
         borderRadius: 6,
         backgroundColor: '#5e0acc',
-        padding: 8,
     },
     goalText:{
       color: 'white',
-    }
+      padding: 8,
+    },
+    pressedItem:{
+        opacity: 0.5,
+    },
 });
 
 export default GoalItem
